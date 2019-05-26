@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">memeworld</string>
+    <string name="facebook_app_id">369053267059452</string>
     <string name="fb_token">EAAFPpuji4vwBAAJ3gQUouTyIfIKGcu1kq6PIHvKCyWHlCF9ZBHPKY7UQIrxNrpUTjTeRzAoUxQIZBTzhoiAU0gNKeMKOKXPD0O01sUlBHkcgtBbIIe8kvIbVzh386s3D10Hv39FNJtOfPf2PCu4zMkRphmZAhKRUZBYuAtOMfp6FUaDKANMOM2W6RCIXshMZD</string>
 </resources>
