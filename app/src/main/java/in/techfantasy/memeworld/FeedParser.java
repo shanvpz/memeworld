@@ -1,6 +1,5 @@
 package in.techfantasy.memeworld;
 
-import android.app.Activity;
 import android.content.Context;
 
 import com.android.volley.Request;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FeedParser {
-    private static List<memeItem> mainList=new ArrayList<>();
+    public static List<memeItem> mainList=new ArrayList<>();
     private static RequestQueue mRequestQueue;
     private Context ctx;
     private static String[] comicsPageIDS = {"ojoclickz"};
@@ -26,12 +25,11 @@ public class FeedParser {
 
 
     public static List<memeItem> getFeed(int categoryID,Context ctx){
-        mRequestQueue=Volley.newRequestQueue(ctx);
+        mRequestQueue= Volley.newRequestQueue(ctx);
+
         for (String item:comicsPageIDS) {
             ParseJson(mRequestQueue,item);
         }
-
-
         return mainList;
     }
 
@@ -66,6 +64,10 @@ public class FeedParser {
             }
         });
         requestQueue.add(request);
+        requestQueue.start();
     }
+
+
+
 
 }
