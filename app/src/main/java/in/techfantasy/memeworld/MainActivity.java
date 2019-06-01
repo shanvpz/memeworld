@@ -1,5 +1,6 @@
 package in.techfantasy.memeworld;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<memeItem> memeItemArrayList;
     private memeAdapter memeAdapter;
     private RequestQueue mRequestQueue;
+    ProgressDialog pd;
     Context ctx;
     JsonObjectRequest request;
     GridView gv;
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         memeItemArrayList = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         ctx = MainActivity.this;
+        pd=new ProgressDialog(this);
+        pd.setMessage("Loading...");
+
 
 
         int[] icons = {R.drawable.com_facebook_button_icon, R.drawable.com_facebook_button_icon_blue, R.drawable.com_facebook_button_login_logo};
@@ -72,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
                         FeedParser.mainList = memeItemArrayList;
 
-                        Intent intent = new Intent(MainActivity.this, VPActivity.class);
-                        ctx.startActivity(intent);
+//                        Intent intent = new Intent(MainActivity.this, VPActivity.class);
+                       // ctx.startActivity(intent);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -99,6 +104,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
+                Intent intent = new Intent(MainActivity.this, VPActivity.class);
+
+                //pd.dismiss();
+                startActivity(intent);
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pd.show();
             }
         }
 

@@ -22,10 +22,12 @@ public class VPActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vp);
+      //  memeItems=(ArrayList<memeItem>) getIntent().getSerializableExtra("mylist");
         viewPager = findViewById(R.id.viewPager);
         memeItems=new ArrayList<>();
 //        memeItems.addAll(FeedParser.getFeed(0,this));
         //mRequestQueue=Volley.newRequestQueue(this);
+
         mRequestQueue=Volley.newRequestQueue(this);
         vpAdapter = new VPAdapter(memeItems,VPActivity.this);
         viewPager.setAdapter(vpAdapter);
